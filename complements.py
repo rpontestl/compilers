@@ -42,18 +42,19 @@ OF = 39
 OR = 40
 PLUS = 41
 PLUS_PLUS = 42
-RIGHT_BRACES = 43
-RIGHT_PARENTHESIS = 44
-RIGHT_SQUARE = 45
-SEMI_COLON = 46
-STRING = 47
-STRUCT = 48
-TEMPORARY = 49
-TIMES = 50
-TRUE = 51
-TYPE = 52
-UNKNOWN = 53
-WHILE = 54
+RETURN = 43
+RIGHT_BRACES = 44
+RIGHT_PARENTHESIS = 45
+RIGHT_SQUARE = 46
+SEMI_COLON = 47
+STRING = 48
+STRUCT = 49
+TEMPORARY = 50
+TIMES = 51
+TRUE = 52
+TYPE = 53
+UNKNOWN = 54
+WHILE = 55
 #end of tokens type <--- manter enumerado
 
 key_words = {
@@ -80,6 +81,7 @@ key_words = {
   'not': NOT,
   'of': OF,
   'or': OR,
+  'return':RETURN,
   'string': STRING,
   'struct': STRUCT,
   'tmp': TEMPORARY,
@@ -108,7 +110,7 @@ def is_digit(character):
     return False
 
 def is_string(character):
-    if character == "\"": return True
+    if character == '"': return True
     else: return False
 
 

@@ -1,5 +1,6 @@
 import sys
 import os
+import time
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
@@ -30,7 +31,7 @@ class AnalisadorLexico:
             self.text_code = select_file.read()
 
     def get_entry(self) -> str:
-        first_element = ""
+        first_element = ''
         if self.text_code:
             first_element = self.text_code[0]
             self.text_code = self.text_code[1:]
@@ -99,14 +100,16 @@ class AnalisadorLexico:
         word = self.next_entry
         self.next_entry = self.get_entry()
 
-        while self.next_entry != "\"":
+        while self.next_entry != '"':
             word+= self.next_entry
-            if self.next_entry == "\n" or self.next_entry == "\r":
+            #print(word)
+            if self.next_entry == '\n' or self.next_entry == '\r':
                 self.line += 1
                 self.entry_position = 0
             self.next_entry = self.get_entry()
             self.entry_position+=1
-
+            
+        self.next_entry = self.get_entry()
         self.secundary_token = self.add_to_consts_list(word)
         return STRING
 
@@ -114,13 +117,13 @@ class AnalisadorLexico:
         self.secundary_token = 0
         
         while(is_space(self.next_entry)):
-            if self.next_entry == "\r" or self.next_entry == "\n":
+            if self.next_entry == '\r' or self.next_entry == '\n':
                 self.line+=1
                 self.entry_position = 0
             self.next_entry = self.get_entry()
             self.entry_position+=1
 
-        if self.next_entry == "":
+        if self.next_entry == '':
             self.token = EOF
 
         elif is_letter(self.next_entry):
