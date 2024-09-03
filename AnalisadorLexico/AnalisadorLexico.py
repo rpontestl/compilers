@@ -12,9 +12,9 @@ class AnalisadorLexico:
             self.file_path = target_file_path
             self.number_of_identifiers = 0
             self.text_code = ""
-            self.secundary_token = 0
+            self.secundary_token = None
             self.identifiers = {}
-            self.consts_list = []
+            self.consts_list = {}
             self.tokens_list = []
             self.key_words = key_words
         else:
@@ -43,13 +43,17 @@ class AnalisadorLexico:
             token = self.key_words[word]
             return token
         except:
-            return IDENTIFIER
+            return ID
             
 
-    def add_to_consts_list(self, word:str) -> int:
-        if word not in self.consts_list:
-            self.consts_list.append(word)
-        return len(self.consts_list) - 1
+    def get_const_number(self, word:str) -> int:
+        itemPosition = len(self.consts_list)
+        try:
+            itemPosition = self.consts_list[word]
+        except:
+            self.consts_list[word] = itemPosition
+        
+        return itemPosition
 
     def get_identifier_number(self, identifier: str) -> int:
         if identifier not in self.identifiers:
@@ -68,7 +72,7 @@ class AnalisadorLexico:
 
         token = self.search_for_key_word(word)
 
-        if token == IDENTIFIER:
+        if token == ID:
             self.secundary_token = self.get_identifier_number(word)
 
         return token
@@ -88,7 +92,7 @@ class AnalisadorLexico:
             self.next_entry = self.get_entry()
             self.entry_position+=1
 
-        self.secundary_token = self.add_to_consts_list(number)
+        self.secundary_token = self.get_const_number(number)
         
         if already_have_point: 
             return FLOAT
@@ -102,7 +106,6 @@ class AnalisadorLexico:
 
         while self.next_entry != '"':
             word+= self.next_entry
-            #print(word)
             if self.next_entry == '\n' or self.next_entry == '\r':
                 self.line += 1
                 self.entry_position = 0
@@ -110,11 +113,11 @@ class AnalisadorLexico:
             self.entry_position+=1
             
         self.next_entry = self.get_entry()
-        self.secundary_token = self.add_to_consts_list(word)
+        self.secundary_token = self.get_const_number(word)
         return STRING
 
     def next_token(self):
-        self.secundary_token = 0
+        self.secundary_token = None
         
         while(is_space(self.next_entry)):
             if self.next_entry == '\r' or self.next_entry == '\n':
