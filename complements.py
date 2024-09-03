@@ -1,3 +1,93 @@
+#token_types <---manter enumerado
+AND = 0
+ARRAY = 1
+BIT_AND = 2
+BIT_OR = 3
+BIT_XOR = 4
+BOOLEAN = 5
+BREAK = 6
+CHAR = 7
+CHARACTER = 8
+COLON = 9
+COMMA = 10
+CONSTANT = 11
+CONTINUE = 12
+DIVIDE = 13
+DO = 14
+DOT = 15
+ELSE = 16
+EOF = 17
+EQUALS = 18
+EQUAL_EQUAL = 19
+FALSE = 20
+FLOAT = 21
+FUNCTION = 22
+GREATER_GREATER = 23
+GREATER_OR_EQUAL = 24
+GREATER_THAN = 25
+IDENTIFIER = 26
+IF = 27
+INTEGER = 28
+LEFT_BRACES = 29
+LEFT_PARENTHESIS = 30
+LEFT_SQUARE = 31
+LESS_LESS = 32
+LESS_OR_EQUAL = 33
+LESS_THAN = 34
+MINUS = 35
+MINUS_MINUS = 36
+NOT = 37
+NOT_EQUAL = 38
+OF = 39
+OR = 40
+PLUS = 41
+PLUS_PLUS = 42
+RIGHT_BRACES = 43
+RIGHT_PARENTHESIS = 44
+RIGHT_SQUARE = 45
+SEMI_COLON = 46
+STRING = 47
+STRUCT = 48
+TEMPORARY = 49
+TIMES = 50
+TRUE = 51
+TYPE = 52
+UNKNOWN = 53
+WHILE = 54
+#end of tokens type <--- manter enumerado
+
+key_words = {
+  'and': AND,
+  'array': ARRAY,
+  'boolean': BOOLEAN,
+  'break': BREAK,
+  'char': CHAR,
+  'character': CHARACTER,
+  'colon': COLON,
+  'comma': COMMA,
+  'continue': CONTINUE,
+  'cte': CONSTANT,
+  'divide': DIVIDE,
+  'do': DO,
+  'dot': DOT,
+  'eof': EOF,
+  'else': ELSE,
+  'false': FALSE,
+  'float': FLOAT,
+  'function': FUNCTION,
+  'if': IF,
+  'int': INTEGER,
+  'not': NOT,
+  'of': OF,
+  'or': OR,
+  'string': STRING,
+  'struct': STRUCT,
+  'tmp': TEMPORARY,
+  'true': TRUE,
+  'type': TYPE,
+  'while': WHILE
+}
+
 def is_space(character):
   if character in [" ","\f","\v","\t","\n","\r"]:
     return True
@@ -21,51 +111,5 @@ def is_string(character):
     if character == "\"": return True
     else: return False
 
-key_words = [
-    'and',
-    'array',
-    'boolean',
-    'break',
-    'char',
-    'character',
-    'colon',
-    'comma',
-    'continue',
-    'divide',
-    'do',
-    'dot',
-    'equal_equal',
-    'equals',
-    'eof',
-    'else',
-    'false',
-    'function',
-    'greater_greater',
-    'greater_or_equal',
-    'greater_than',
-    'if',
-    'left_braces',
-    'left_parenthesis',
-    'left_square',
-    'less_less',
-    'less_or_equal',
-    'less_than',
-    'minus',
-    'minus_minus',
-    'not',
-    'not_equal',
-    'number',
-    'of',
-    'or',
-    'plus',
-    'plus_plus',
-    'right_braces',
-    'right_parenthesis',
-    'right_square',
-    'semi_colon',
-    'string',
-    'struct',
-    'true',
-    'type',
-    'while'
-]
+
+
