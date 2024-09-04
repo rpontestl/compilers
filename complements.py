@@ -42,19 +42,21 @@ OF = 39
 OR = 40
 PLUS = 41
 PLUS_PLUS = 42
-RETURN = 43
-RIGHT_BRACES = 44
-RIGHT_PARENTHESIS = 45
-RIGHT_SQUARE = 46
-SEMI_COLON = 47
-STRING = 48
-STRUCT = 49
-TEMPORARY = 50
-TIMES = 51
-TRUE = 52
-TYPE = 53
-UNKNOWN = 54
-WHILE = 55
+PRINT = 43
+RETURN = 44
+RIGHT_BRACES = 45
+RIGHT_PARENTHESIS = 46
+RIGHT_SQUARE = 47
+SEMI_COLON = 48
+STRING = 49
+STRUCT = 50
+TEMPORARY = 51
+TIMES = 52
+TRUE = 53
+TYPE = 54
+UNKNOWN = 55
+WHILE = 56
+
 #end of tokens type <--- manter enumerado
 
 key_words = {
@@ -81,6 +83,7 @@ key_words = {
   'not': NOT,
   'of': OF,
   'or': OR,
+  'print':PRINT,
   'return':RETURN,
   'string': STRING,
   'struct': STRUCT,
