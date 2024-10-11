@@ -1,0 +1,17 @@
+function calcularResultado(x: integer, y: integer): boolean {
+    tmp integer contador;
+    tmp integer resultado;
+    tmp boolean retorno;
+    cte string mensagem = "Iniciando calculo";
+    cte integer limite = 50;
+
+    contador = 0;
+    resultado = 0;
+
+    while (contador < limite) {
+        tmp boolean cond1;
+        tmp boolean cond2;
+        cond1 = contador;
+        contador = contador + 1;
+    }
+}
