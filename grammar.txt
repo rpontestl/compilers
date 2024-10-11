@@ -1,0 +1,136 @@
+/* Program */
+P -> LDECL
+
+/* List of Declarations */
+LDECL -> LDECL DECL
+       | DECL
+
+/* Declaration */
+DECL -> DV
+      | DC
+      | DT
+      | DF
+
+/* Variable Declaration */
+DV -> 'tmp' T LI ‘;’
+
+/* Constant Declaration */
+DC -> 'cte' T ID ‘=’ E ‘;’
+
+/* Type */
+T -> ‘integer’
+   | ‘char’
+   | ‘boolean’
+   | ‘string’
+   | ID
+
+/* List of Identifiers */
+LI -> LI ‘,’ IDD
+    | IDD
+
+/* Type Declaration */
+DT -> ‘type’ IDD ‘=’ ‘array’ ‘[‘ NUM ‘]’ ‘of’ T
+    | ‘type’ IDD ‘=’ ‘struct’ ‘{‘ DC ‘}’
+    | ‘type’ IDD ‘=’ T
+
+/* Function Declaration */
+DF -> ‘function’ IDD ‘(’ LP ‘)’ ‘:’ T B
+
+/* List of Parameters */
+LP -> LP ‘,’ IDD ‘:’ T
+    | IDD ‘:’ T
+
+/* Block */
+B -> ‘{‘ LDVC LS ‘}’
+
+/* List of Variables/Constants */
+LDVC -> LDVC DV
+     | LDVC DC
+     | DC
+     | DV
+
+/* List of Statements */
+LS -> LS S
+    | S
+
+/* Statement */
+S -> ‘if’ ‘(‘ E ‘)’ S
+   | ‘if’ ‘(‘ E ‘)’ S ‘else’ S
+   | ‘while’ ‘(‘ E ‘)’ S
+   | ‘do’ S ‘while’ ‘(‘ E ‘)’ ‘;’
+   | B
+   | LV ‘=’ E ‘;’
+   | ‘break’ ‘;’
+   | ‘continue’ ‘;’
+   | ‘return’ E
+
+/* Expression */
+E -> E ‘&&’ K
+   | E ‘||’ K
+   | K
+
+/* K Expression */
+K -> K ‘&’ L
+   | K ‘|’ L
+   | K ‘^’ L
+   | L
+
+/* L Expression */
+L -> L ‘<’ R
+   | L ‘>’ R
+   | L ‘<=’ R
+   | L ‘>=’ R
+   | L ‘==’ R
+   | L ‘!=’ R
+   | R
+
+/* R Expression */
+R -> R ‘>>’ W
+   | R ‘<<’ W
+   | W
+
+/* W Expression */
+W -> W ‘+’ Y
+   | W ‘-’ Y
+   | Y
+
+/* Y Expression */
+Y -> Y ‘*’ F
+   | Y ‘/’ F
+   | F
+
+/* F Expression */
+F -> LV
+   | ‘++’ LV
+   | ‘--’ LV
+   | LV ‘++’
+   | LV ‘--’
+   | ‘(’ E ‘)’
+   | IDU ‘(’ LE ‘)’
+   | ‘-’ F
+   | ‘!’ F
+   | TRUE
+   | FALSE
+   | CHR
+   | STR
+   | NUM
+
+/* List of Expressions */
+LE -> LE ‘,’ E
+    | E
+
+/* Left Value */
+LV -> LV ‘.’ ID
+    | LV ‘[’ E ‘]’
+    | ID
+
+/* Identifiers and Literals */
+IDD   -> Id
+IDU   -> Id
+ID    -> Id 
+TRUE  -> ‘true’
+FALSE -> ‘false’
+CHR   -> c
+STR   -> s
+NUM   -> n
+      | n ‘.’ n
