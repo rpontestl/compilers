@@ -1,12 +1,6 @@
-# Generated from xama.g4 by ANTLR 4.13.2
-# encoding: utf-8
 from antlr4 import *
-from io import StringIO
 import sys
-if sys.version_info[1] > 5:
-	from typing import TextIO
-else:
-	from typing.io import TextIO
+from typing import TextIO
 
 def serializedATN():
     return [
@@ -147,9 +141,7 @@ def serializedATN():
         230,245,247,271,273,285,287,299,301,313,315,347,357,371,373
     ]
 
-class xamaParser ( Parser ):
-
-    grammarFileName = "xama.g4"
+class XamaSyntaticAnalyser ( Parser ):
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
@@ -290,14 +282,14 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def decl_list(self):
-            return self.getTypedRuleContext(xamaParser.Decl_listContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Decl_listContext,0)
 
 
         def EOF(self):
-            return self.getToken(xamaParser.EOF, 0)
+            return self.getToken(XamaSyntaticAnalyser.EOF, 0)
 
         def getRuleIndex(self):
-            return xamaParser.RULE_program
+            return XamaSyntaticAnalyser.RULE_program
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterProgram" ):
@@ -312,14 +304,14 @@ class xamaParser ( Parser ):
 
     def program(self):
 
-        localctx = xamaParser.ProgramContext(self, self._ctx, self.state)
+        localctx = XamaSyntaticAnalyser.ProgramContext(self, self._ctx, self.state)
         self.enterRule(localctx, 0, self.RULE_program)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 48
             self.decl_list(0)
             self.state = 49
-            self.match(xamaParser.EOF)
+            self.match(XamaSyntaticAnalyser.EOF)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -337,15 +329,15 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def decl(self):
-            return self.getTypedRuleContext(xamaParser.DeclContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.DeclContext,0)
 
 
         def decl_list(self):
-            return self.getTypedRuleContext(xamaParser.Decl_listContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Decl_listContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_decl_list
+            return XamaSyntaticAnalyser.RULE_decl_list
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterDecl_list" ):
@@ -360,7 +352,7 @@ class xamaParser ( Parser ):
     def decl_list(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = xamaParser.Decl_listContext(self, self._ctx, _parentState)
+        localctx = XamaSyntaticAnalyser.Decl_listContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 2
         self.enterRecursionRule(localctx, 2, self.RULE_decl_list, _p)
@@ -377,7 +369,7 @@ class xamaParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    localctx = xamaParser.Decl_listContext(self, _parentctx, _parentState)
+                    localctx = XamaSyntaticAnalyser.Decl_listContext(self, _parentctx, _parentState)
                     self.pushNewRecursionContext(localctx, _startState, self.RULE_decl_list)
                     self.state = 54
                     if not self.precpred(self._ctx, 2):
@@ -406,23 +398,23 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def var_decl(self):
-            return self.getTypedRuleContext(xamaParser.Var_declContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Var_declContext,0)
 
 
         def const_decl(self):
-            return self.getTypedRuleContext(xamaParser.Const_declContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Const_declContext,0)
 
 
         def type_decl(self):
-            return self.getTypedRuleContext(xamaParser.Type_declContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Type_declContext,0)
 
 
         def func_decl(self):
-            return self.getTypedRuleContext(xamaParser.Func_declContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Func_declContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_decl
+            return XamaSyntaticAnalyser.RULE_decl
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterDecl" ):
@@ -437,7 +429,7 @@ class xamaParser ( Parser ):
 
     def decl(self):
 
-        localctx = xamaParser.DeclContext(self, self._ctx, self.state)
+        localctx = XamaSyntaticAnalyser.DeclContext(self, self._ctx, self.state)
         self.enterRule(localctx, 4, self.RULE_decl)
         try:
             self.state = 65
@@ -483,15 +475,15 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def type_(self):
-            return self.getTypedRuleContext(xamaParser.TypeContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.TypeContext,0)
 
 
         def id_list(self):
-            return self.getTypedRuleContext(xamaParser.Id_listContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Id_listContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_var_decl
+            return XamaSyntaticAnalyser.RULE_var_decl
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterVar_decl" ):
@@ -506,18 +498,18 @@ class xamaParser ( Parser ):
 
     def var_decl(self):
 
-        localctx = xamaParser.Var_declContext(self, self._ctx, self.state)
+        localctx = XamaSyntaticAnalyser.Var_declContext(self, self._ctx, self.state)
         self.enterRule(localctx, 6, self.RULE_var_decl)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 67
-            self.match(xamaParser.T__0)
+            self.match(XamaSyntaticAnalyser.T__0)
             self.state = 68
             self.type_()
             self.state = 69
             self.id_list(0)
             self.state = 70
-            self.match(xamaParser.T__1)
+            self.match(XamaSyntaticAnalyser.T__1)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -535,18 +527,18 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def type_(self):
-            return self.getTypedRuleContext(xamaParser.TypeContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.TypeContext,0)
 
 
         def ID(self):
-            return self.getToken(xamaParser.ID, 0)
+            return self.getToken(XamaSyntaticAnalyser.ID, 0)
 
         def expr(self):
-            return self.getTypedRuleContext(xamaParser.ExprContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.ExprContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_const_decl
+            return XamaSyntaticAnalyser.RULE_const_decl
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterConst_decl" ):
@@ -561,22 +553,22 @@ class xamaParser ( Parser ):
 
     def const_decl(self):
 
-        localctx = xamaParser.Const_declContext(self, self._ctx, self.state)
+        localctx = XamaSyntaticAnalyser.Const_declContext(self, self._ctx, self.state)
         self.enterRule(localctx, 8, self.RULE_const_decl)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 72
-            self.match(xamaParser.T__2)
+            self.match(XamaSyntaticAnalyser.T__2)
             self.state = 73
             self.type_()
             self.state = 74
-            self.match(xamaParser.ID)
+            self.match(XamaSyntaticAnalyser.ID)
             self.state = 75
-            self.match(xamaParser.T__3)
+            self.match(XamaSyntaticAnalyser.T__3)
             self.state = 76
             self.expr(0)
             self.state = 77
-            self.match(xamaParser.T__1)
+            self.match(XamaSyntaticAnalyser.T__1)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -594,10 +586,10 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def ID(self):
-            return self.getToken(xamaParser.ID, 0)
+            return self.getToken(XamaSyntaticAnalyser.ID, 0)
 
         def getRuleIndex(self):
-            return xamaParser.RULE_type
+            return XamaSyntaticAnalyser.RULE_type
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterType" ):
@@ -612,7 +604,7 @@ class xamaParser ( Parser ):
 
     def type_(self):
 
-        localctx = xamaParser.TypeContext(self, self._ctx, self.state)
+        localctx = XamaSyntaticAnalyser.TypeContext(self, self._ctx, self.state)
         self.enterRule(localctx, 10, self.RULE_type)
         self._la = 0 # Token type
         try:
@@ -641,14 +633,14 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def ID(self):
-            return self.getToken(xamaParser.ID, 0)
+            return self.getToken(XamaSyntaticAnalyser.ID, 0)
 
         def id_list(self):
-            return self.getTypedRuleContext(xamaParser.Id_listContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Id_listContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_id_list
+            return XamaSyntaticAnalyser.RULE_id_list
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterId_list" ):
@@ -663,14 +655,14 @@ class xamaParser ( Parser ):
     def id_list(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = xamaParser.Id_listContext(self, self._ctx, _parentState)
+        localctx = XamaSyntaticAnalyser.Id_listContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 12
         self.enterRecursionRule(localctx, 12, self.RULE_id_list, _p)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 82
-            self.match(xamaParser.ID)
+            self.match(XamaSyntaticAnalyser.ID)
             self._ctx.stop = self._input.LT(-1)
             self.state = 89
             self._errHandler.sync(self)
@@ -680,16 +672,16 @@ class xamaParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    localctx = xamaParser.Id_listContext(self, _parentctx, _parentState)
+                    localctx = XamaSyntaticAnalyser.Id_listContext(self, _parentctx, _parentState)
                     self.pushNewRecursionContext(localctx, _startState, self.RULE_id_list)
                     self.state = 84
                     if not self.precpred(self._ctx, 2):
                         from antlr4.error.Errors import FailedPredicateException
                         raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
                     self.state = 85
-                    self.match(xamaParser.T__9)
+                    self.match(XamaSyntaticAnalyser.T__9)
                     self.state = 86
-                    self.match(xamaParser.ID) 
+                    self.match(XamaSyntaticAnalyser.ID) 
                 self.state = 91
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,2,self._ctx)
@@ -711,21 +703,21 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def ID(self):
-            return self.getToken(xamaParser.ID, 0)
+            return self.getToken(XamaSyntaticAnalyser.ID, 0)
 
         def NUM(self):
-            return self.getToken(xamaParser.NUM, 0)
+            return self.getToken(XamaSyntaticAnalyser.NUM, 0)
 
         def type_(self):
-            return self.getTypedRuleContext(xamaParser.TypeContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.TypeContext,0)
 
 
         def const_decl(self):
-            return self.getTypedRuleContext(xamaParser.Const_declContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Const_declContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_type_decl
+            return XamaSyntaticAnalyser.RULE_type_decl
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterType_decl" ):
@@ -740,7 +732,7 @@ class xamaParser ( Parser ):
 
     def type_decl(self):
 
-        localctx = xamaParser.Type_declContext(self, self._ctx, self.state)
+        localctx = XamaSyntaticAnalyser.Type_declContext(self, self._ctx, self.state)
         self.enterRule(localctx, 14, self.RULE_type_decl)
         try:
             self.state = 113
@@ -749,21 +741,21 @@ class xamaParser ( Parser ):
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 92
-                self.match(xamaParser.T__10)
+                self.match(XamaSyntaticAnalyser.T__10)
                 self.state = 93
-                self.match(xamaParser.ID)
+                self.match(XamaSyntaticAnalyser.ID)
                 self.state = 94
-                self.match(xamaParser.T__3)
+                self.match(XamaSyntaticAnalyser.T__3)
                 self.state = 95
-                self.match(xamaParser.T__11)
+                self.match(XamaSyntaticAnalyser.T__11)
                 self.state = 96
-                self.match(xamaParser.T__12)
+                self.match(XamaSyntaticAnalyser.T__12)
                 self.state = 97
-                self.match(xamaParser.NUM)
+                self.match(XamaSyntaticAnalyser.NUM)
                 self.state = 98
-                self.match(xamaParser.T__13)
+                self.match(XamaSyntaticAnalyser.T__13)
                 self.state = 99
-                self.match(xamaParser.T__14)
+                self.match(XamaSyntaticAnalyser.T__14)
                 self.state = 100
                 self.type_()
                 pass
@@ -771,29 +763,29 @@ class xamaParser ( Parser ):
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 101
-                self.match(xamaParser.T__10)
+                self.match(XamaSyntaticAnalyser.T__10)
                 self.state = 102
-                self.match(xamaParser.ID)
+                self.match(XamaSyntaticAnalyser.ID)
                 self.state = 103
-                self.match(xamaParser.T__3)
+                self.match(XamaSyntaticAnalyser.T__3)
                 self.state = 104
-                self.match(xamaParser.T__15)
+                self.match(XamaSyntaticAnalyser.T__15)
                 self.state = 105
-                self.match(xamaParser.T__16)
+                self.match(XamaSyntaticAnalyser.T__16)
                 self.state = 106
                 self.const_decl()
                 self.state = 107
-                self.match(xamaParser.T__17)
+                self.match(XamaSyntaticAnalyser.T__17)
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
                 self.state = 109
-                self.match(xamaParser.T__10)
+                self.match(XamaSyntaticAnalyser.T__10)
                 self.state = 110
-                self.match(xamaParser.ID)
+                self.match(XamaSyntaticAnalyser.ID)
                 self.state = 111
-                self.match(xamaParser.T__3)
+                self.match(XamaSyntaticAnalyser.T__3)
                 self.state = 112
                 self.type_()
                 pass
@@ -816,22 +808,22 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def ID(self):
-            return self.getToken(xamaParser.ID, 0)
+            return self.getToken(XamaSyntaticAnalyser.ID, 0)
 
         def param_list(self):
-            return self.getTypedRuleContext(xamaParser.Param_listContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Param_listContext,0)
 
 
         def type_(self):
-            return self.getTypedRuleContext(xamaParser.TypeContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.TypeContext,0)
 
 
         def block(self):
-            return self.getTypedRuleContext(xamaParser.BlockContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.BlockContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_func_decl
+            return XamaSyntaticAnalyser.RULE_func_decl
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterFunc_decl" ):
@@ -846,22 +838,22 @@ class xamaParser ( Parser ):
 
     def func_decl(self):
 
-        localctx = xamaParser.Func_declContext(self, self._ctx, self.state)
+        localctx = XamaSyntaticAnalyser.Func_declContext(self, self._ctx, self.state)
         self.enterRule(localctx, 16, self.RULE_func_decl)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 115
-            self.match(xamaParser.T__18)
+            self.match(XamaSyntaticAnalyser.T__18)
             self.state = 116
-            self.match(xamaParser.ID)
+            self.match(XamaSyntaticAnalyser.ID)
             self.state = 117
-            self.match(xamaParser.T__19)
+            self.match(XamaSyntaticAnalyser.T__19)
             self.state = 118
             self.param_list(0)
             self.state = 119
-            self.match(xamaParser.T__20)
+            self.match(XamaSyntaticAnalyser.T__20)
             self.state = 120
-            self.match(xamaParser.T__21)
+            self.match(XamaSyntaticAnalyser.T__21)
             self.state = 121
             self.type_()
             self.state = 122
@@ -883,18 +875,18 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def ID(self):
-            return self.getToken(xamaParser.ID, 0)
+            return self.getToken(XamaSyntaticAnalyser.ID, 0)
 
         def type_(self):
-            return self.getTypedRuleContext(xamaParser.TypeContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.TypeContext,0)
 
 
         def param_list(self):
-            return self.getTypedRuleContext(xamaParser.Param_listContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Param_listContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_param_list
+            return XamaSyntaticAnalyser.RULE_param_list
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterParam_list" ):
@@ -909,16 +901,16 @@ class xamaParser ( Parser ):
     def param_list(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = xamaParser.Param_listContext(self, self._ctx, _parentState)
+        localctx = XamaSyntaticAnalyser.Param_listContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 18
         self.enterRecursionRule(localctx, 18, self.RULE_param_list, _p)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 125
-            self.match(xamaParser.ID)
+            self.match(XamaSyntaticAnalyser.ID)
             self.state = 126
-            self.match(xamaParser.T__21)
+            self.match(XamaSyntaticAnalyser.T__21)
             self.state = 127
             self.type_()
             self._ctx.stop = self._input.LT(-1)
@@ -930,18 +922,18 @@ class xamaParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    localctx = xamaParser.Param_listContext(self, _parentctx, _parentState)
+                    localctx = XamaSyntaticAnalyser.Param_listContext(self, _parentctx, _parentState)
                     self.pushNewRecursionContext(localctx, _startState, self.RULE_param_list)
                     self.state = 129
                     if not self.precpred(self._ctx, 2):
                         from antlr4.error.Errors import FailedPredicateException
                         raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
                     self.state = 130
-                    self.match(xamaParser.T__9)
+                    self.match(XamaSyntaticAnalyser.T__9)
                     self.state = 131
-                    self.match(xamaParser.ID)
+                    self.match(XamaSyntaticAnalyser.ID)
                     self.state = 132
-                    self.match(xamaParser.T__21)
+                    self.match(XamaSyntaticAnalyser.T__21)
                     self.state = 133
                     self.type_() 
                 self.state = 138
@@ -965,15 +957,15 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def var_const_list(self):
-            return self.getTypedRuleContext(xamaParser.Var_const_listContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Var_const_listContext,0)
 
 
         def stmt_list(self):
-            return self.getTypedRuleContext(xamaParser.Stmt_listContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Stmt_listContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_block
+            return XamaSyntaticAnalyser.RULE_block
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterBlock" ):
@@ -988,18 +980,18 @@ class xamaParser ( Parser ):
 
     def block(self):
 
-        localctx = xamaParser.BlockContext(self, self._ctx, self.state)
+        localctx = XamaSyntaticAnalyser.BlockContext(self, self._ctx, self.state)
         self.enterRule(localctx, 20, self.RULE_block)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 139
-            self.match(xamaParser.T__16)
+            self.match(XamaSyntaticAnalyser.T__16)
             self.state = 140
             self.var_const_list(0)
             self.state = 141
             self.stmt_list(0)
             self.state = 142
-            self.match(xamaParser.T__17)
+            self.match(XamaSyntaticAnalyser.T__17)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1017,19 +1009,19 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def var_decl(self):
-            return self.getTypedRuleContext(xamaParser.Var_declContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Var_declContext,0)
 
 
         def const_decl(self):
-            return self.getTypedRuleContext(xamaParser.Const_declContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Const_declContext,0)
 
 
         def var_const_list(self):
-            return self.getTypedRuleContext(xamaParser.Var_const_listContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Var_const_listContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_var_const_list
+            return XamaSyntaticAnalyser.RULE_var_const_list
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterVar_const_list" ):
@@ -1044,7 +1036,7 @@ class xamaParser ( Parser ):
     def var_const_list(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = xamaParser.Var_const_listContext(self, self._ctx, _parentState)
+        localctx = XamaSyntaticAnalyser.Var_const_listContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 22
         self.enterRecursionRule(localctx, 22, self.RULE_var_const_list, _p)
@@ -1077,7 +1069,7 @@ class xamaParser ( Parser ):
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,6,self._ctx)
                     if la_ == 1:
-                        localctx = xamaParser.Var_const_listContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.Var_const_listContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_var_const_list)
                         self.state = 149
                         if not self.precpred(self._ctx, 4):
@@ -1088,7 +1080,7 @@ class xamaParser ( Parser ):
                         pass
 
                     elif la_ == 2:
-                        localctx = xamaParser.Var_const_listContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.Var_const_listContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_var_const_list)
                         self.state = 151
                         if not self.precpred(self._ctx, 3):
@@ -1120,15 +1112,15 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def stmt(self):
-            return self.getTypedRuleContext(xamaParser.StmtContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.StmtContext,0)
 
 
         def stmt_list(self):
-            return self.getTypedRuleContext(xamaParser.Stmt_listContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Stmt_listContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_stmt_list
+            return XamaSyntaticAnalyser.RULE_stmt_list
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterStmt_list" ):
@@ -1143,7 +1135,7 @@ class xamaParser ( Parser ):
     def stmt_list(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = xamaParser.Stmt_listContext(self, self._ctx, _parentState)
+        localctx = XamaSyntaticAnalyser.Stmt_listContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 24
         self.enterRecursionRule(localctx, 24, self.RULE_stmt_list, _p)
@@ -1160,7 +1152,7 @@ class xamaParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    localctx = xamaParser.Stmt_listContext(self, _parentctx, _parentState)
+                    localctx = XamaSyntaticAnalyser.Stmt_listContext(self, _parentctx, _parentState)
                     self.pushNewRecursionContext(localctx, _startState, self.RULE_stmt_list)
                     self.state = 161
                     if not self.precpred(self._ctx, 2):
@@ -1189,30 +1181,30 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def expr(self):
-            return self.getTypedRuleContext(xamaParser.ExprContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.ExprContext,0)
 
 
         def stmt(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(xamaParser.StmtContext)
+                return self.getTypedRuleContexts(XamaSyntaticAnalyser.StmtContext)
             else:
-                return self.getTypedRuleContext(xamaParser.StmtContext,i)
+                return self.getTypedRuleContext(XamaSyntaticAnalyser.StmtContext,i)
 
 
         def block(self):
-            return self.getTypedRuleContext(xamaParser.BlockContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.BlockContext,0)
 
 
         def lv(self):
-            return self.getTypedRuleContext(xamaParser.LvContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.LvContext,0)
 
 
         def print_stmt(self):
-            return self.getTypedRuleContext(xamaParser.Print_stmtContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Print_stmtContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_stmt
+            return XamaSyntaticAnalyser.RULE_stmt
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterStmt" ):
@@ -1227,7 +1219,7 @@ class xamaParser ( Parser ):
 
     def stmt(self):
 
-        localctx = xamaParser.StmtContext(self, self._ctx, self.state)
+        localctx = XamaSyntaticAnalyser.StmtContext(self, self._ctx, self.state)
         self.enterRule(localctx, 26, self.RULE_stmt)
         try:
             self.state = 211
@@ -1236,13 +1228,13 @@ class xamaParser ( Parser ):
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 168
-                self.match(xamaParser.T__22)
+                self.match(XamaSyntaticAnalyser.T__22)
                 self.state = 169
-                self.match(xamaParser.T__19)
+                self.match(XamaSyntaticAnalyser.T__19)
                 self.state = 170
                 self.expr(0)
                 self.state = 171
-                self.match(xamaParser.T__20)
+                self.match(XamaSyntaticAnalyser.T__20)
                 self.state = 172
                 self.stmt()
                 pass
@@ -1250,17 +1242,17 @@ class xamaParser ( Parser ):
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 174
-                self.match(xamaParser.T__22)
+                self.match(XamaSyntaticAnalyser.T__22)
                 self.state = 175
-                self.match(xamaParser.T__19)
+                self.match(XamaSyntaticAnalyser.T__19)
                 self.state = 176
                 self.expr(0)
                 self.state = 177
-                self.match(xamaParser.T__20)
+                self.match(XamaSyntaticAnalyser.T__20)
                 self.state = 178
                 self.stmt()
                 self.state = 179
-                self.match(xamaParser.T__23)
+                self.match(XamaSyntaticAnalyser.T__23)
                 self.state = 180
                 self.stmt()
                 pass
@@ -1268,13 +1260,13 @@ class xamaParser ( Parser ):
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
                 self.state = 182
-                self.match(xamaParser.T__24)
+                self.match(XamaSyntaticAnalyser.T__24)
                 self.state = 183
-                self.match(xamaParser.T__19)
+                self.match(XamaSyntaticAnalyser.T__19)
                 self.state = 184
                 self.expr(0)
                 self.state = 185
-                self.match(xamaParser.T__20)
+                self.match(XamaSyntaticAnalyser.T__20)
                 self.state = 186
                 self.stmt()
                 pass
@@ -1282,19 +1274,19 @@ class xamaParser ( Parser ):
             elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
                 self.state = 188
-                self.match(xamaParser.T__25)
+                self.match(XamaSyntaticAnalyser.T__25)
                 self.state = 189
                 self.stmt()
                 self.state = 190
-                self.match(xamaParser.T__24)
+                self.match(XamaSyntaticAnalyser.T__24)
                 self.state = 191
-                self.match(xamaParser.T__19)
+                self.match(XamaSyntaticAnalyser.T__19)
                 self.state = 192
                 self.expr(0)
                 self.state = 193
-                self.match(xamaParser.T__20)
+                self.match(XamaSyntaticAnalyser.T__20)
                 self.state = 194
-                self.match(xamaParser.T__1)
+                self.match(XamaSyntaticAnalyser.T__1)
                 pass
 
             elif la_ == 5:
@@ -1308,37 +1300,37 @@ class xamaParser ( Parser ):
                 self.state = 197
                 self.lv(0)
                 self.state = 198
-                self.match(xamaParser.T__3)
+                self.match(XamaSyntaticAnalyser.T__3)
                 self.state = 199
                 self.expr(0)
                 self.state = 200
-                self.match(xamaParser.T__1)
+                self.match(XamaSyntaticAnalyser.T__1)
                 pass
 
             elif la_ == 7:
                 self.enterOuterAlt(localctx, 7)
                 self.state = 202
-                self.match(xamaParser.T__26)
+                self.match(XamaSyntaticAnalyser.T__26)
                 self.state = 203
-                self.match(xamaParser.T__1)
+                self.match(XamaSyntaticAnalyser.T__1)
                 pass
 
             elif la_ == 8:
                 self.enterOuterAlt(localctx, 8)
                 self.state = 204
-                self.match(xamaParser.T__27)
+                self.match(XamaSyntaticAnalyser.T__27)
                 self.state = 205
-                self.match(xamaParser.T__1)
+                self.match(XamaSyntaticAnalyser.T__1)
                 pass
 
             elif la_ == 9:
                 self.enterOuterAlt(localctx, 9)
                 self.state = 206
-                self.match(xamaParser.T__28)
+                self.match(XamaSyntaticAnalyser.T__28)
                 self.state = 207
                 self.expr(0)
                 self.state = 208
-                self.match(xamaParser.T__1)
+                self.match(XamaSyntaticAnalyser.T__1)
                 pass
 
             elif la_ == 10:
@@ -1365,11 +1357,11 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def expr_list(self):
-            return self.getTypedRuleContext(xamaParser.Expr_listContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Expr_listContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_print_stmt
+            return XamaSyntaticAnalyser.RULE_print_stmt
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterPrint_stmt" ):
@@ -1384,20 +1376,20 @@ class xamaParser ( Parser ):
 
     def print_stmt(self):
 
-        localctx = xamaParser.Print_stmtContext(self, self._ctx, self.state)
+        localctx = XamaSyntaticAnalyser.Print_stmtContext(self, self._ctx, self.state)
         self.enterRule(localctx, 28, self.RULE_print_stmt)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 213
-            self.match(xamaParser.T__29)
+            self.match(XamaSyntaticAnalyser.T__29)
             self.state = 214
-            self.match(xamaParser.T__19)
+            self.match(XamaSyntaticAnalyser.T__19)
             self.state = 215
             self.expr_list(0)
             self.state = 216
-            self.match(xamaParser.T__20)
+            self.match(XamaSyntaticAnalyser.T__20)
             self.state = 217
-            self.match(xamaParser.T__1)
+            self.match(XamaSyntaticAnalyser.T__1)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1415,15 +1407,15 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def cond(self):
-            return self.getTypedRuleContext(xamaParser.CondContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.CondContext,0)
 
 
         def expr(self):
-            return self.getTypedRuleContext(xamaParser.ExprContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.ExprContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_expr
+            return XamaSyntaticAnalyser.RULE_expr
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterExpr" ):
@@ -1438,7 +1430,7 @@ class xamaParser ( Parser ):
     def expr(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = xamaParser.ExprContext(self, self._ctx, _parentState)
+        localctx = XamaSyntaticAnalyser.ExprContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 30
         self.enterRecursionRule(localctx, 30, self.RULE_expr, _p)
@@ -1459,27 +1451,27 @@ class xamaParser ( Parser ):
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,10,self._ctx)
                     if la_ == 1:
-                        localctx = xamaParser.ExprContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 222
                         if not self.precpred(self._ctx, 3):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 3)")
                         self.state = 223
-                        self.match(xamaParser.T__30)
+                        self.match(XamaSyntaticAnalyser.T__30)
                         self.state = 224
                         self.cond(0)
                         pass
 
                     elif la_ == 2:
-                        localctx = xamaParser.ExprContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 225
                         if not self.precpred(self._ctx, 2):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
                         self.state = 226
-                        self.match(xamaParser.T__31)
+                        self.match(XamaSyntaticAnalyser.T__31)
                         self.state = 227
                         self.cond(0)
                         pass
@@ -1506,15 +1498,15 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def bitwise(self):
-            return self.getTypedRuleContext(xamaParser.BitwiseContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.BitwiseContext,0)
 
 
         def cond(self):
-            return self.getTypedRuleContext(xamaParser.CondContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.CondContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_cond
+            return XamaSyntaticAnalyser.RULE_cond
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterCond" ):
@@ -1529,7 +1521,7 @@ class xamaParser ( Parser ):
     def cond(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = xamaParser.CondContext(self, self._ctx, _parentState)
+        localctx = XamaSyntaticAnalyser.CondContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 32
         self.enterRecursionRule(localctx, 32, self.RULE_cond, _p)
@@ -1550,40 +1542,40 @@ class xamaParser ( Parser ):
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,12,self._ctx)
                     if la_ == 1:
-                        localctx = xamaParser.CondContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.CondContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_cond)
                         self.state = 236
                         if not self.precpred(self._ctx, 4):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 4)")
                         self.state = 237
-                        self.match(xamaParser.T__32)
+                        self.match(XamaSyntaticAnalyser.T__32)
                         self.state = 238
                         self.bitwise(0)
                         pass
 
                     elif la_ == 2:
-                        localctx = xamaParser.CondContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.CondContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_cond)
                         self.state = 239
                         if not self.precpred(self._ctx, 3):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 3)")
                         self.state = 240
-                        self.match(xamaParser.T__33)
+                        self.match(XamaSyntaticAnalyser.T__33)
                         self.state = 241
                         self.bitwise(0)
                         pass
 
                     elif la_ == 3:
-                        localctx = xamaParser.CondContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.CondContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_cond)
                         self.state = 242
                         if not self.precpred(self._ctx, 2):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
                         self.state = 243
-                        self.match(xamaParser.T__34)
+                        self.match(XamaSyntaticAnalyser.T__34)
                         self.state = 244
                         self.bitwise(0)
                         pass
@@ -1610,15 +1602,15 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def relational(self):
-            return self.getTypedRuleContext(xamaParser.RelationalContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.RelationalContext,0)
 
 
         def bitwise(self):
-            return self.getTypedRuleContext(xamaParser.BitwiseContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.BitwiseContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_bitwise
+            return XamaSyntaticAnalyser.RULE_bitwise
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterBitwise" ):
@@ -1633,7 +1625,7 @@ class xamaParser ( Parser ):
     def bitwise(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = xamaParser.BitwiseContext(self, self._ctx, _parentState)
+        localctx = XamaSyntaticAnalyser.BitwiseContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 34
         self.enterRecursionRule(localctx, 34, self.RULE_bitwise, _p)
@@ -1654,79 +1646,79 @@ class xamaParser ( Parser ):
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,14,self._ctx)
                     if la_ == 1:
-                        localctx = xamaParser.BitwiseContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.BitwiseContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_bitwise)
                         self.state = 253
                         if not self.precpred(self._ctx, 7):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 7)")
                         self.state = 254
-                        self.match(xamaParser.T__35)
+                        self.match(XamaSyntaticAnalyser.T__35)
                         self.state = 255
                         self.relational(0)
                         pass
 
                     elif la_ == 2:
-                        localctx = xamaParser.BitwiseContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.BitwiseContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_bitwise)
                         self.state = 256
                         if not self.precpred(self._ctx, 6):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 6)")
                         self.state = 257
-                        self.match(xamaParser.T__36)
+                        self.match(XamaSyntaticAnalyser.T__36)
                         self.state = 258
                         self.relational(0)
                         pass
 
                     elif la_ == 3:
-                        localctx = xamaParser.BitwiseContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.BitwiseContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_bitwise)
                         self.state = 259
                         if not self.precpred(self._ctx, 5):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 5)")
                         self.state = 260
-                        self.match(xamaParser.T__37)
+                        self.match(XamaSyntaticAnalyser.T__37)
                         self.state = 261
                         self.relational(0)
                         pass
 
                     elif la_ == 4:
-                        localctx = xamaParser.BitwiseContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.BitwiseContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_bitwise)
                         self.state = 262
                         if not self.precpred(self._ctx, 4):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 4)")
                         self.state = 263
-                        self.match(xamaParser.T__38)
+                        self.match(XamaSyntaticAnalyser.T__38)
                         self.state = 264
                         self.relational(0)
                         pass
 
                     elif la_ == 5:
-                        localctx = xamaParser.BitwiseContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.BitwiseContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_bitwise)
                         self.state = 265
                         if not self.precpred(self._ctx, 3):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 3)")
                         self.state = 266
-                        self.match(xamaParser.T__39)
+                        self.match(XamaSyntaticAnalyser.T__39)
                         self.state = 267
                         self.relational(0)
                         pass
 
                     elif la_ == 6:
-                        localctx = xamaParser.BitwiseContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.BitwiseContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_bitwise)
                         self.state = 268
                         if not self.precpred(self._ctx, 2):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
                         self.state = 269
-                        self.match(xamaParser.T__40)
+                        self.match(XamaSyntaticAnalyser.T__40)
                         self.state = 270
                         self.relational(0)
                         pass
@@ -1753,15 +1745,15 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def shift(self):
-            return self.getTypedRuleContext(xamaParser.ShiftContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.ShiftContext,0)
 
 
         def relational(self):
-            return self.getTypedRuleContext(xamaParser.RelationalContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.RelationalContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_relational
+            return XamaSyntaticAnalyser.RULE_relational
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterRelational" ):
@@ -1776,7 +1768,7 @@ class xamaParser ( Parser ):
     def relational(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = xamaParser.RelationalContext(self, self._ctx, _parentState)
+        localctx = XamaSyntaticAnalyser.RelationalContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 36
         self.enterRecursionRule(localctx, 36, self.RULE_relational, _p)
@@ -1797,27 +1789,27 @@ class xamaParser ( Parser ):
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,16,self._ctx)
                     if la_ == 1:
-                        localctx = xamaParser.RelationalContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.RelationalContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_relational)
                         self.state = 279
                         if not self.precpred(self._ctx, 3):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 3)")
                         self.state = 280
-                        self.match(xamaParser.T__41)
+                        self.match(XamaSyntaticAnalyser.T__41)
                         self.state = 281
                         self.shift(0)
                         pass
 
                     elif la_ == 2:
-                        localctx = xamaParser.RelationalContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.RelationalContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_relational)
                         self.state = 282
                         if not self.precpred(self._ctx, 2):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
                         self.state = 283
-                        self.match(xamaParser.T__42)
+                        self.match(XamaSyntaticAnalyser.T__42)
                         self.state = 284
                         self.shift(0)
                         pass
@@ -1844,15 +1836,15 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def add_sub(self):
-            return self.getTypedRuleContext(xamaParser.Add_subContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Add_subContext,0)
 
 
         def shift(self):
-            return self.getTypedRuleContext(xamaParser.ShiftContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.ShiftContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_shift
+            return XamaSyntaticAnalyser.RULE_shift
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterShift" ):
@@ -1867,7 +1859,7 @@ class xamaParser ( Parser ):
     def shift(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = xamaParser.ShiftContext(self, self._ctx, _parentState)
+        localctx = XamaSyntaticAnalyser.ShiftContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 38
         self.enterRecursionRule(localctx, 38, self.RULE_shift, _p)
@@ -1888,27 +1880,27 @@ class xamaParser ( Parser ):
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,18,self._ctx)
                     if la_ == 1:
-                        localctx = xamaParser.ShiftContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.ShiftContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_shift)
                         self.state = 293
                         if not self.precpred(self._ctx, 3):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 3)")
                         self.state = 294
-                        self.match(xamaParser.T__43)
+                        self.match(XamaSyntaticAnalyser.T__43)
                         self.state = 295
                         self.add_sub(0)
                         pass
 
                     elif la_ == 2:
-                        localctx = xamaParser.ShiftContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.ShiftContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_shift)
                         self.state = 296
                         if not self.precpred(self._ctx, 2):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
                         self.state = 297
-                        self.match(xamaParser.T__44)
+                        self.match(XamaSyntaticAnalyser.T__44)
                         self.state = 298
                         self.add_sub(0)
                         pass
@@ -1935,15 +1927,15 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def mul_div(self):
-            return self.getTypedRuleContext(xamaParser.Mul_divContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Mul_divContext,0)
 
 
         def add_sub(self):
-            return self.getTypedRuleContext(xamaParser.Add_subContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Add_subContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_add_sub
+            return XamaSyntaticAnalyser.RULE_add_sub
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterAdd_sub" ):
@@ -1958,7 +1950,7 @@ class xamaParser ( Parser ):
     def add_sub(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = xamaParser.Add_subContext(self, self._ctx, _parentState)
+        localctx = XamaSyntaticAnalyser.Add_subContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 40
         self.enterRecursionRule(localctx, 40, self.RULE_add_sub, _p)
@@ -1979,27 +1971,27 @@ class xamaParser ( Parser ):
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,20,self._ctx)
                     if la_ == 1:
-                        localctx = xamaParser.Add_subContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.Add_subContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_add_sub)
                         self.state = 307
                         if not self.precpred(self._ctx, 3):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 3)")
                         self.state = 308
-                        self.match(xamaParser.T__45)
+                        self.match(XamaSyntaticAnalyser.T__45)
                         self.state = 309
                         self.mul_div()
                         pass
 
                     elif la_ == 2:
-                        localctx = xamaParser.Add_subContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.Add_subContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_add_sub)
                         self.state = 310
                         if not self.precpred(self._ctx, 2):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
                         self.state = 311
-                        self.match(xamaParser.T__46)
+                        self.match(XamaSyntaticAnalyser.T__46)
                         self.state = 312
                         self.mul_div()
                         pass
@@ -2026,41 +2018,41 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def lv(self):
-            return self.getTypedRuleContext(xamaParser.LvContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.LvContext,0)
 
 
         def expr(self):
-            return self.getTypedRuleContext(xamaParser.ExprContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.ExprContext,0)
 
 
         def ID(self):
-            return self.getToken(xamaParser.ID, 0)
+            return self.getToken(XamaSyntaticAnalyser.ID, 0)
 
         def expr_list(self):
-            return self.getTypedRuleContext(xamaParser.Expr_listContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Expr_listContext,0)
 
 
         def mul_div(self):
-            return self.getTypedRuleContext(xamaParser.Mul_divContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Mul_divContext,0)
 
 
         def TRUE(self):
-            return self.getToken(xamaParser.TRUE, 0)
+            return self.getToken(XamaSyntaticAnalyser.TRUE, 0)
 
         def FALSE(self):
-            return self.getToken(xamaParser.FALSE, 0)
+            return self.getToken(XamaSyntaticAnalyser.FALSE, 0)
 
         def CHR(self):
-            return self.getToken(xamaParser.CHR, 0)
+            return self.getToken(XamaSyntaticAnalyser.CHR, 0)
 
         def STR(self):
-            return self.getToken(xamaParser.STR, 0)
+            return self.getToken(XamaSyntaticAnalyser.STR, 0)
 
         def NUM(self):
-            return self.getToken(xamaParser.NUM, 0)
+            return self.getToken(XamaSyntaticAnalyser.NUM, 0)
 
         def getRuleIndex(self):
-            return xamaParser.RULE_mul_div
+            return XamaSyntaticAnalyser.RULE_mul_div
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterMul_div" ):
@@ -2075,7 +2067,7 @@ class xamaParser ( Parser ):
 
     def mul_div(self):
 
-        localctx = xamaParser.Mul_divContext(self, self._ctx, self.state)
+        localctx = XamaSyntaticAnalyser.Mul_divContext(self, self._ctx, self.state)
         self.enterRule(localctx, 42, self.RULE_mul_div)
         try:
             self.state = 347
@@ -2090,7 +2082,7 @@ class xamaParser ( Parser ):
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 319
-                self.match(xamaParser.T__47)
+                self.match(XamaSyntaticAnalyser.T__47)
                 self.state = 320
                 self.lv(0)
                 pass
@@ -2098,7 +2090,7 @@ class xamaParser ( Parser ):
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
                 self.state = 321
-                self.match(xamaParser.T__48)
+                self.match(XamaSyntaticAnalyser.T__48)
                 self.state = 322
                 self.lv(0)
                 pass
@@ -2108,7 +2100,7 @@ class xamaParser ( Parser ):
                 self.state = 323
                 self.lv(0)
                 self.state = 324
-                self.match(xamaParser.T__47)
+                self.match(XamaSyntaticAnalyser.T__47)
                 pass
 
             elif la_ == 5:
@@ -2116,35 +2108,35 @@ class xamaParser ( Parser ):
                 self.state = 326
                 self.lv(0)
                 self.state = 327
-                self.match(xamaParser.T__48)
+                self.match(XamaSyntaticAnalyser.T__48)
                 pass
 
             elif la_ == 6:
                 self.enterOuterAlt(localctx, 6)
                 self.state = 329
-                self.match(xamaParser.T__19)
+                self.match(XamaSyntaticAnalyser.T__19)
                 self.state = 330
                 self.expr(0)
                 self.state = 331
-                self.match(xamaParser.T__20)
+                self.match(XamaSyntaticAnalyser.T__20)
                 pass
 
             elif la_ == 7:
                 self.enterOuterAlt(localctx, 7)
                 self.state = 333
-                self.match(xamaParser.ID)
+                self.match(XamaSyntaticAnalyser.ID)
                 self.state = 334
-                self.match(xamaParser.T__19)
+                self.match(XamaSyntaticAnalyser.T__19)
                 self.state = 335
                 self.expr_list(0)
                 self.state = 336
-                self.match(xamaParser.T__20)
+                self.match(XamaSyntaticAnalyser.T__20)
                 pass
 
             elif la_ == 8:
                 self.enterOuterAlt(localctx, 8)
                 self.state = 338
-                self.match(xamaParser.T__44)
+                self.match(XamaSyntaticAnalyser.T__44)
                 self.state = 339
                 self.mul_div()
                 pass
@@ -2152,7 +2144,7 @@ class xamaParser ( Parser ):
             elif la_ == 9:
                 self.enterOuterAlt(localctx, 9)
                 self.state = 340
-                self.match(xamaParser.T__49)
+                self.match(XamaSyntaticAnalyser.T__49)
                 self.state = 341
                 self.mul_div()
                 pass
@@ -2160,31 +2152,31 @@ class xamaParser ( Parser ):
             elif la_ == 10:
                 self.enterOuterAlt(localctx, 10)
                 self.state = 342
-                self.match(xamaParser.TRUE)
+                self.match(XamaSyntaticAnalyser.TRUE)
                 pass
 
             elif la_ == 11:
                 self.enterOuterAlt(localctx, 11)
                 self.state = 343
-                self.match(xamaParser.FALSE)
+                self.match(XamaSyntaticAnalyser.FALSE)
                 pass
 
             elif la_ == 12:
                 self.enterOuterAlt(localctx, 12)
                 self.state = 344
-                self.match(xamaParser.CHR)
+                self.match(XamaSyntaticAnalyser.CHR)
                 pass
 
             elif la_ == 13:
                 self.enterOuterAlt(localctx, 13)
                 self.state = 345
-                self.match(xamaParser.STR)
+                self.match(XamaSyntaticAnalyser.STR)
                 pass
 
             elif la_ == 14:
                 self.enterOuterAlt(localctx, 14)
                 self.state = 346
-                self.match(xamaParser.NUM)
+                self.match(XamaSyntaticAnalyser.NUM)
                 pass
 
 
@@ -2205,15 +2197,15 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def expr(self):
-            return self.getTypedRuleContext(xamaParser.ExprContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.ExprContext,0)
 
 
         def expr_list(self):
-            return self.getTypedRuleContext(xamaParser.Expr_listContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.Expr_listContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_expr_list
+            return XamaSyntaticAnalyser.RULE_expr_list
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterExpr_list" ):
@@ -2228,7 +2220,7 @@ class xamaParser ( Parser ):
     def expr_list(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = xamaParser.Expr_listContext(self, self._ctx, _parentState)
+        localctx = XamaSyntaticAnalyser.Expr_listContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 44
         self.enterRecursionRule(localctx, 44, self.RULE_expr_list, _p)
@@ -2245,14 +2237,14 @@ class xamaParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    localctx = xamaParser.Expr_listContext(self, _parentctx, _parentState)
+                    localctx = XamaSyntaticAnalyser.Expr_listContext(self, _parentctx, _parentState)
                     self.pushNewRecursionContext(localctx, _startState, self.RULE_expr_list)
                     self.state = 352
                     if not self.precpred(self._ctx, 2):
                         from antlr4.error.Errors import FailedPredicateException
                         raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
                     self.state = 353
-                    self.match(xamaParser.T__9)
+                    self.match(XamaSyntaticAnalyser.T__9)
                     self.state = 354
                     self.expr(0) 
                 self.state = 359
@@ -2276,18 +2268,18 @@ class xamaParser ( Parser ):
             self.parser = parser
 
         def ID(self):
-            return self.getToken(xamaParser.ID, 0)
+            return self.getToken(XamaSyntaticAnalyser.ID, 0)
 
         def lv(self):
-            return self.getTypedRuleContext(xamaParser.LvContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.LvContext,0)
 
 
         def expr(self):
-            return self.getTypedRuleContext(xamaParser.ExprContext,0)
+            return self.getTypedRuleContext(XamaSyntaticAnalyser.ExprContext,0)
 
 
         def getRuleIndex(self):
-            return xamaParser.RULE_lv
+            return XamaSyntaticAnalyser.RULE_lv
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterLv" ):
@@ -2302,14 +2294,14 @@ class xamaParser ( Parser ):
     def lv(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = xamaParser.LvContext(self, self._ctx, _parentState)
+        localctx = XamaSyntaticAnalyser.LvContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 46
         self.enterRecursionRule(localctx, 46, self.RULE_lv, _p)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 361
-            self.match(xamaParser.ID)
+            self.match(XamaSyntaticAnalyser.ID)
             self._ctx.stop = self._input.LT(-1)
             self.state = 373
             self._errHandler.sync(self)
@@ -2323,31 +2315,31 @@ class xamaParser ( Parser ):
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,24,self._ctx)
                     if la_ == 1:
-                        localctx = xamaParser.LvContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.LvContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_lv)
                         self.state = 363
                         if not self.precpred(self._ctx, 3):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 3)")
                         self.state = 364
-                        self.match(xamaParser.T__50)
+                        self.match(XamaSyntaticAnalyser.T__50)
                         self.state = 365
-                        self.match(xamaParser.ID)
+                        self.match(XamaSyntaticAnalyser.ID)
                         pass
 
                     elif la_ == 2:
-                        localctx = xamaParser.LvContext(self, _parentctx, _parentState)
+                        localctx = XamaSyntaticAnalyser.LvContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_lv)
                         self.state = 366
                         if not self.precpred(self._ctx, 2):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
                         self.state = 367
-                        self.match(xamaParser.T__12)
+                        self.match(XamaSyntaticAnalyser.T__12)
                         self.state = 368
                         self.expr(0)
                         self.state = 369
-                        self.match(xamaParser.T__13)
+                        self.match(XamaSyntaticAnalyser.T__13)
                         pass
 
              

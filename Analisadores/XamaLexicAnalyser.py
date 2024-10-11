@@ -1,12 +1,7 @@
 # Generated from xama.g4 by ANTLR 4.13.2
 from antlr4 import *
-from io import StringIO
 import sys
-if sys.version_info[1] > 5:
-    from typing import TextIO
-else:
-    from typing.io import TextIO
-
+from typing import TextIO
 
 def serializedATN():
     return [
@@ -136,7 +131,7 @@ def serializedATN():
         332,340,346,348,353,1,6,0,0
     ]
 
-class xamaLexer(Lexer):
+class XamaLexicAnalyser(Lexer):
 
     atn = ATNDeserializer().deserialize(serializedATN())
 

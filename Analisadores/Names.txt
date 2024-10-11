@@ -1,5 +1,4 @@
 token literal names:
-null
 'tmp'
 ';'
 'cte'

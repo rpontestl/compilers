@@ -1,0 +1,17 @@
+function funcaoTeste1(param1:integer, param2:float):integer{
+    tmp integer soma;
+    cte string name = "programa teste";
+    print("teste");
+    while(soma < 100)
+        if (soma <= 90 || param1 > 20)
+            soma = soma + 10;
+        else
+            break;   
+    soma = 22 + 33 + 22;
+    return soma;
+}
+function main(param3:integer):integer {
+    tmp integer a;
+    a = funcaoTeste1(1,1);
+    return a;
+}
