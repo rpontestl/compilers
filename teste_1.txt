@@ -2,8 +2,8 @@ function funcaoTeste1(param1:integer, param2:float):integer{
     tmp integer soma;
     cte string name = "programa teste";
     print("teste");
-    while(soma < 100)
-        if (soma <= 90 || param1 > 20)
+    while(soma != 100)
+        if (soma != 60)
             soma = soma + 10;
         else
             break;   
