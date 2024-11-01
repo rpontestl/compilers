@@ -92,7 +92,7 @@ class XamaSemanticAnalyser(ParseTreeListener):
     def enterPrint_stmt(self, ctx:XamaSyntaticAnalyser.Print_stmtContext):
         self.emit("call print") 
         
-    # Chama a função print (implemente em assembly)
+    
 
     def enterStmt(self, ctx:XamaSyntaticAnalyser.StmtContext):
         if ctx.getChild(0).getText() == 'if':
@@ -110,12 +110,12 @@ class XamaSemanticAnalyser(ParseTreeListener):
         condition = ctx.expr().getText()
         self.emit(f"cmp {condition}, 0")
         self.emit(f"je {label_else}")
-        # Emitir o código para o bloco if
+        
         self.enterStmt(ctx.stmt(0))
         self.emit(f"jmp {label_end}")
         self.emit(f"{label_else}:")
         if ctx.stmt(1):
-            self.enterStmt(ctx.stmt(1))  # Emitir o código para o bloco else, se existir
+            self.enterStmt(ctx.stmt(1))  
         self.emit(f"{label_end}:")
 
     def enterWhile_stmt(self, ctx:XamaSyntaticAnalyser.StmtContext):
@@ -125,17 +125,21 @@ class XamaSemanticAnalyser(ParseTreeListener):
         self.emit(f"{label_start}:")
         self.emit(f"cmp {condition}, 0")
         self.emit(f"je {label_end}")
-        # Emitir o código para o bloco while
+        
         self.enterStmt(ctx.stmt(0))
         self.emit(f"jmp {label_start}")
         self.emit(f"{label_end}:")
         
-    def handleLv(self, ctx:XamaSyntaticAnalyser.LvContext):
-        id_ = ctx.ID().getText()
-        if not symbol_table.lookup(id_):
-            print(f"Erro: Variável ou função '{id_}' não declarada")
-        else:
-            self.emit(f"mov eax, [{id_}]")
+    def handleLv(self, ctx):
+        try:
+            id_ = ctx.ID().getText()
+            if not symbol_table.lookup(id_):
+                print(f"Erro: Variável ou função '{id_}' não declarada")
+            else:
+                self.emit(f"mov eax, [{id_}]")
+        except AttributeError:
+            print("Erro: Contexto esperado é LvContext com um método ID().")
+
 
     def handleAssign(self, ctx):
         left_value = ctx.lv().getText()
@@ -146,42 +150,110 @@ class XamaSemanticAnalyser(ParseTreeListener):
 
     def enterExpr(self, ctx:XamaSyntaticAnalyser.ExprContext):
         if len(ctx.children) == 3:
-            # Lida com expressões binárias (ex: a + b)
             self.handleBinaryExpr(ctx)
         else:
-            # Lidar com variáveis ou valores literais
-            if hasattr(ctx, 'lv') and ctx.lv():  # Verifica se lv() existe
+            if hasattr(ctx, 'lv') and ctx.lv():  
                 self.handleLv(ctx.lv())
             else:
-                # Trata outras expressões, como constantes e literais
                 text = ctx.getText()
-                if text.isdigit():  # Verifica se é um número
+                if text.isdigit():  
                     self.emit(f"mov eax, {text}")
-                elif text in ['true', 'false']:  # Verifica se é um valor booleano
+                elif text in ['true', 'false']:  
                     self.emit(f"mov eax, {'1' if text == 'true' else '0'}")
+                elif text.startswith('"') and text.endswith('"'):
+                    self.emit(f'mov eax, offset {text}')
                 else:
-                    print(f"Erro: Expressão não reconhecida: {text}")
+                    pass
             
     def handleBinaryExpr(self, ctx):
-        left = ctx.getChild(0).getText()
+        left_ctx = ctx.getChild(0)
         operator = ctx.getChild(1).getText()
-        right = ctx.getChild(2).getText()
+        right_ctx = ctx.getChild(2)
 
-        if left.isdigit():
-            self.emit(f"mov eax, {left}")
-        else:
-            self.handleLv(ctx.getChild(0))
+        
+        self.enterExpr(left_ctx)
+        self.emit("push eax")
 
-        if right.isdigit():
-            if operator == '+':
-                self.emit(f"add eax, {right}")
-            elif operator == '-':
-                self.emit(f"sub eax, {right}")
+        
+        self.enterExpr(right_ctx)
+        self.emit("mov ebx, eax")
+
+        
+        self.emit("pop eax")
+
+        if operator == '+':
+            self.emit("add eax, ebx")
+        elif operator == '-':
+            self.emit("sub eax, ebx")
+        elif operator == '*':
+            self.emit("imul eax, ebx")
+        elif operator == '/':
+            self.emit("cdq")
+            self.emit("idiv ebx")
+        elif operator == '%':
+            self.emit("cdq")
+            self.emit("idiv ebx")
+            self.emit("mov eax, edx")
+        elif operator == '<<':
+            self.emit("mov ecx, ebx")
+            self.emit("shl eax, cl")
+        elif operator == '>>':
+            self.emit("mov ecx, ebx")
+            self.emit("shr eax, cl")
+        elif operator == '&':
+            self.emit("and eax, ebx")
+        elif operator == '|':
+            self.emit("or eax, ebx")
+        elif operator == '^':
+            self.emit("xor eax, ebx")
+        elif operator == '&&':
+            false_label = self.new_label()
+            end_label = self.new_label()
+            self.emit("cmp eax, 0")
+            self.emit(f"je {false_label}")
+            self.emit("cmp ebx, 0")
+            self.emit(f"je {false_label}")
+            self.emit("mov eax, 1")
+            self.emit(f"jmp {end_label}")
+            self.emit(f"{false_label}:")
+            self.emit("mov eax, 0")
+            self.emit(f"{end_label}:")
+        elif operator == '||':
+            true_label = self.new_label()
+            end_label = self.new_label()
+            self.emit("cmp eax, 0")
+            self.emit(f"jne {true_label}")
+            self.emit("cmp ebx, 0")
+            self.emit(f"jne {true_label}")
+            self.emit("mov eax, 0")
+            self.emit(f"jmp {end_label}")
+            self.emit(f"{true_label}:")
+            self.emit("mov eax, 1")
+            self.emit(f"{end_label}:")
+        elif operator in ['<', '<=', '>', '>=', '==', '!=']:
+            self.emit("cmp eax, ebx")
+            true_label = self.new_label()
+            end_label = self.new_label()
+            if operator == '<':
+                self.emit(f"jl {true_label}")
+            elif operator == '<=':
+                self.emit(f"jle {true_label}")
+            elif operator == '>':
+                self.emit(f"jg {true_label}")
+            elif operator == '>=':
+                self.emit(f"jge {true_label}")
+            elif operator == '==':
+                self.emit(f"je {true_label}")
+            elif operator == '!=':
+                self.emit(f"jne {true_label}")
+            self.emit("mov eax, 0")
+            self.emit(f"jmp {end_label}")
+            self.emit(f"{true_label}:")
+            self.emit("mov eax, 1")
+            self.emit(f"{end_label}:")
         else:
-            if operator == '+':
-                self.emit(f"add eax, [{right}]")
-            elif operator == '-':
-                self.emit(f"sub eax, [{right}]")
+            print(f"Erro: Operador desconhecido '{operator}'")
+
  
     def get_assembly_code(self):
         return self.assembly_code
