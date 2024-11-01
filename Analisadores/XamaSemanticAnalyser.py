@@ -90,9 +90,7 @@ class XamaSemanticAnalyser(ParseTreeListener):
         self.emit("ret")  
 
     def enterPrint_stmt(self, ctx:XamaSyntaticAnalyser.Print_stmtContext):
-        self.emit("call print") 
-        
-    
+        self.emit("call print")     
 
     def enterStmt(self, ctx:XamaSyntaticAnalyser.StmtContext):
         if ctx.getChild(0).getText() == 'if':
@@ -257,5 +255,5 @@ class XamaSemanticAnalyser(ParseTreeListener):
  
     def get_assembly_code(self):
         return self.assembly_code
-            
 del XamaSyntaticAnalyser
+
